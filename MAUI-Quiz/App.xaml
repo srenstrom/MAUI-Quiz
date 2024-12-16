@@ -1,0 +1,31 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MAUI_Quiz"
+             x:Class="MAUI_Quiz.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary>
+                <Style x:Key="GeneralLabelStyle" TargetType="Label">
+                    <Setter Property="FontSize" Value="Medium"/>
+                    <Setter Property="FontAttributes" Value="Bold"/>
+                    <Setter Property="FontFamily" Value="Monospace"/>
+                    <Setter Property="HorizontalOptions" Value="Center"/>
+                    <Setter Property="VerticalOptions" Value="Start"/>
+                </Style>
+                <Style x:Key="GeneralImageButtonStyle" TargetType="ImageButton">
+                   
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="WidthRequest" Value="150"/>
+                    <Setter Property="HeightRequest" Value="100"/>
+                    <Setter Property="HorizontalOptions" Value="Center"/>
+                    <Setter Property="VerticalOptions" Value="Center"/>
+                </Style>
+            </ResourceDictionary>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

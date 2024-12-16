@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MAUI_Quiz.Models"
+             xmlns:vm="clr-namespace:MAUI_Quiz.ViewModels"
+             x:DataType="vm:MainViewModel"
+             x:Class="MAUI_Quiz.MainPage"
+             Title="{Binding Title}">
+
+   
+        <Grid RowDefinitions="Auto,*" 
+      ColumnDefinitions="*,*,*" 
+      Margin="5" Padding="5">
+
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="Music" TextColor="Gray" Style="{StaticResource GeneralLabelStyle}"/>
+                <ImageButton Source="newmusic.png"
+                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=GetCommand}"
+                     CommandParameter="music"
+                   Style="{StaticResource GeneralImageButtonStyle}"/>
+            </StackLayout>
+            <StackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="Geography" TextColor="Gray" Style="{StaticResource GeneralLabelStyle}"/>
+                <ImageButton Source="nyhi.png"
+                             
+                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=GetCommand}"
+                     CommandParameter="geography"
+                     Style="{StaticResource GeneralImageButtonStyle}"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" Grid.Column="2" VerticalOptions="Center">
+            <Label Text="History" TextColor="Gray" Style="{StaticResource GeneralLabelStyle}"/>
+                <ImageButton Source="nygeo.png"
+                 Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=GetCommand}"
+                 CommandParameter="historyholidays"
+                            
+                 Style="{StaticResource GeneralImageButtonStyle}"/>
+            </StackLayout>
+            <CollectionView ItemsSource="{Binding Trivias}"
+                        Margin="10"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="3">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Trivia">
+                        
+                        <Frame BorderColor="Gray"
+                            HeightRequest="400" 
+                          
+                                Margin="10"
+                                BackgroundColor="White">
+                            <VerticalStackLayout Padding="5" 
+                                                 HorizontalOptions="Center"
+                                                 VerticalOptions="Start">
+                                <Frame BorderColor="Gray" Margin="10">
+                                <Label FontAttributes="Bold" FontSize="Small" Text="{Binding Question}"
+                                           MaximumWidthRequest="300"/>
+                                </Frame>
+                                <Button BackgroundColor="Black" Text="Show answer" Margin="20" Grid.Column="2"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=ShowAnswerCommand}" 
+                                        CommandParameter="{Binding}"/>
+                                <Label FontSize="Subtitle" 
+                                       TextColor="Green"
+                                       FontAttributes="Bold"
+                                       Text="{Binding Answer}" 
+                                       HorizontalOptions="Center" 
+                                       Margin="10"
+                                       IsVisible="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=IsAnswerVisible}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+  
+</ContentPage>
