@@ -13,7 +13,6 @@ namespace MAUI_Quiz.Services
         {
             httpClient = new HttpClient();
         }
-
         public async Task<List<Trivia>> GetTriviaAsync(string category = "")
         {
             string apiKey = await SecureStorage.Default.GetAsync("api_key");
