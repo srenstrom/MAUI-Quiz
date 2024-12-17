@@ -35,7 +35,8 @@
                             
                  Style="{StaticResource GeneralImageButtonStyle}"/>
             </StackLayout>
-            <CollectionView ItemsSource="{Binding Trivias}"
+ 
+        <CollectionView ItemsSource="{Binding Trivias}"
                         Margin="10"
                         Grid.Row="1"
                         Grid.ColumnSpan="3">
@@ -52,7 +53,8 @@
                                                  VerticalOptions="Start">
                                 <Frame BorderColor="Gray" Margin="10">
                                 <Label FontAttributes="Bold" FontSize="Small" Text="{Binding Question}"
-                                           MaximumWidthRequest="300"/>
+                                           MaximumWidthRequest="300"
+                                           HorizontalTextAlignment="Center"/>
                                 </Frame>
                                 <Button BackgroundColor="Black" Text="Show answer" Margin="20" Grid.Column="2"
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=ShowAnswerCommand}" 

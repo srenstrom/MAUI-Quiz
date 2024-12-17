@@ -3,9 +3,7 @@
 namespace MAUI_Quiz
 {
     public partial class MainPage : ContentPage
-    {
-      
-
+    {    
         public MainPage(MainViewModel vm)
         {
             InitializeComponent();
@@ -13,5 +11,4 @@ namespace MAUI_Quiz
             vm.Title = "Trivia quiz!";
         }
     }
-
 }
