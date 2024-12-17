@@ -8,7 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>            
             <ResourceDictionary>
                 <Style x:Key="GeneralLabelStyle" TargetType="Label">
                     <Setter Property="FontSize" Value="Medium"/>
@@ -17,8 +17,7 @@
                     <Setter Property="HorizontalOptions" Value="Center"/>
                     <Setter Property="VerticalOptions" Value="Start"/>
                 </Style>
-                <Style x:Key="GeneralImageButtonStyle" TargetType="ImageButton">
-                   
+                <Style x:Key="GeneralImageButtonStyle" TargetType="ImageButton">                   
                     <Setter Property="Margin" Value="5"/>
                     <Setter Property="WidthRequest" Value="150"/>
                     <Setter Property="HeightRequest" Value="100"/>

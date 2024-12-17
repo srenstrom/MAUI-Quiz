@@ -20,22 +20,24 @@ namespace MAUI_Quiz.Services
 
             if (string.IsNullOrEmpty(apiKey))
             {
-                // Om nyckeln inte finns, sätt den här
+                // If key doesnt exist, set it
                 await SecureStorage.Default.SetAsync("api_key", "YOUR-API-KEY");
 
             }
             else
             {
-                // Om nyckeln redan finns, använd den
+                // If key exists, get it
                 apiKey = await SecureStorage.Default.GetAsync("api_key");
             }
+
             var url = "https://api.api-ninjas.com/v1/trivia";
+
             if (!string.IsNullOrEmpty(category))
             {
                url = $"https://api.api-ninjas.com/v1/trivia?category={category}";
             }
             
-            // Lägger till API-nyckeln i headern samt rensar så det inte blir dubletter vid nya requests
+            // Adds key to header and clears header before a new request is done to avoid duplicates
             httpClient.DefaultRequestHeaders.Clear();
             httpClient.DefaultRequestHeaders.Add("X-Api-Key", apiKey);
             var response = await httpClient.GetAsync(url);
@@ -43,8 +45,7 @@ namespace MAUI_Quiz.Services
             if (response.IsSuccessStatusCode)
             {
                 trivias = await response.Content.ReadFromJsonAsync<List<Trivia>>();
-            }
-            
+            }            
             return trivias;
         }
     }
