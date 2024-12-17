@@ -9,8 +9,19 @@ namespace MAUI_Quiz.ViewModels
     public partial class MainViewModel : BaseViewModel
     {
         private readonly TriviaService triviaService;
+
+        [ObservableProperty]
+        private string selectedCategory;
+
+        [ObservableProperty]
+        string answer;
+
+        [ObservableProperty]
+        private bool isAnswerVisible;
+
         [ObservableProperty]
         ObservableCollection<Trivia> trivias = new ObservableCollection<Trivia>();
+
         [ObservableProperty]
         List<string> categories = new()
             {
@@ -30,11 +41,6 @@ namespace MAUI_Quiz.ViewModels
                 "sportsleisure",                            
             };
 
-        [ObservableProperty]
-        string answer;
-
-        [ObservableProperty]
-        private bool isAnswerVisible;
         [RelayCommand]
         void ShowAnswer(Trivia trivia)
         {
@@ -45,9 +51,7 @@ namespace MAUI_Quiz.ViewModels
         {
             this.triviaService = triviaService;
         }
-        [ObservableProperty]
-        private string selectedCategory;
-
+        
         [RelayCommand]
         async Task Get(string category = "")
         {
